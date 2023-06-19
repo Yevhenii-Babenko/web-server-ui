@@ -29,6 +29,8 @@ export default {
         if (response.ok) {
           // Login successful, perform necessary actions (e.g., store token, navigate to another page)
           console.log('Login successful')
+          let { token } = await response.json().then((data) => data);
+          localStorage.setItem('token', token);
         } else {
           // Login failed, display error message to the user
           console.log('Login failed')
